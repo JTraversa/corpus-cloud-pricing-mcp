@@ -1,0 +1,70 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.JTraversa/corpus-cloud-pricing-mcp",
+  "title": "corpusAI Cloud Pricing",
+  "description": "Cloud, GPU and LLM token prices with index fixings. Pay per call over x402 or with a prepaid key.",
+  "version": "0.1.6",
+  "websiteUrl": "https://cloud.trycorpus.ai/docs",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "corpus-cloud-pricing-mcp",
+      "version": "0.1.6",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CORPUS_PAYER_KEY",
+          "description": "EVM private key of a wallet with a Circle Gateway USDC balance; paid tools pay for themselves. Omit to use only the free tools.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "CORPUS_CHAIN",
+          "description": "Circle Gateway chain to pay on, as the Gateway SDK names it: base, ethereum, arbitrum, optimism, polygon, avalanche, unichain, sonic, worldChain, sei, hyperEvm or arc.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string",
+          "default": "base"
+        },
+        {
+          "name": "CORPUS_MAX_USDC",
+          "description": "Spend cap per call in USDC; calls priced above it are refused.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "number",
+          "default": "0.10"
+        },
+        {
+          "name": "CORPUS_BASE_URL",
+          "description": "API origin; leave unset for https://cloud.trycorpus.ai.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://cloud.trycorpus.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional: Bearer ck_\u2026 prepaid key for the paid tools; free tools need nothing.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/JTraversa/corpus-cloud-pricing-mcp",
+    "source": "github"
+  }
+}

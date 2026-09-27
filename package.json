@@ -1,0 +1,49 @@
+{
+  "name": "corpus-cloud-pricing-mcp",
+  "mcpName": "io.github.JTraversa/corpus-cloud-pricing-mcp",
+  "version": "0.1.6",
+  "description": "MCP server for corpusAI Cloud Pricing: cloud spot, on-demand, reserved, GPU rental and LLM token prices with index fixings. Paid tools pay per call in USDC over x402 through Circle Gateway; the API also takes MPP and prepaid keys.",
+  "type": "module",
+  "bin": {
+    "corpus-cloud-pricing-mcp": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "skills/"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "x402",
+    "usdc",
+    "cloud-pricing",
+    "gpu",
+    "spot",
+    "aws",
+    "gcp",
+    "azure",
+    "corpusai"
+  ],
+  "license": "MIT",
+  "author": "corpusAI <hello@trycorpus.ai>",
+  "homepage": "https://cloud.trycorpus.ai/docs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@circle-fin/x402-batching": "^3.4.0",
+    "@x402/core": "^2.3.0",
+    "@x402/evm": "^2.3.0",
+    "viem": "^2.0.0",
+    "zod": "^3.25.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JTraversa/corpus-cloud-pricing-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JTraversa/corpus-cloud-pricing-mcp/issues"
+  }
+}
